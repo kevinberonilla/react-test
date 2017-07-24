@@ -19,7 +19,6 @@ class App extends Component {
                 clickedTitle: 'New Button 1 Title'
             },
             {
-                title: 'Button 2 Title',
                 clickedTitle: 'New Button 2 Title'
             },
             {
