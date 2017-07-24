@@ -5,7 +5,8 @@ class Button extends React.Component {
         super(props);
         
         this.state = {
-            title: this.props.title || 'No Title Provided'
+            title: this.props.title || 'No Title Provided',
+            clickedTitle: this.props.clickedTitle || 'No Clicked Title Provided'
         }
         
         this.handleOnClick = this.handleOnClick.bind(this);
@@ -15,7 +16,9 @@ class Button extends React.Component {
         console.log('click');
         console.log(e);
         
-        this.setState({ title: 'New Button Title' });
+        this.setState({
+            title: this.state.clickedTitle
+        });
     }
     
     render() {
