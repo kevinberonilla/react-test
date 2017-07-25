@@ -23,7 +23,7 @@ class Button extends React.Component {
     
     render() {
         return (
-            <button onClick={this.handleOnClick}>{this.state.title}</button>
+            <button className="App-button" onClick={this.handleOnClick}>{this.state.title}</button>
         );
       }
 }
