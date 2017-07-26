@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, BrowserHistory } from 'react-router-dom';
 
 /* --------------------------------------------------
 Styles
@@ -9,17 +9,23 @@ import './index.css';
 /* --------------------------------------------------
 Pages
 -------------------------------------------------- */
-import Home from './components/pages/Home.jsx';
+import Home from './components/containers/Home.jsx';
+import Page from './components/containers/Page.jsx';
 
 /* --------------------------------------------------
 App Class
 -------------------------------------------------- */
 class App extends Component {
     render() {
+        var history;
+        
         return (
-            <Switch>
-                <Route exact path="/" component={Home} />
-            </Switch>
+            <BrowserRouter history={history}>
+                <Switch>
+                    <Route exact path="/" component={Home} />
+                    <Route path="/page" component={Page} />
+                </Switch>
+            </BrowserRouter>
         );
     }
 }

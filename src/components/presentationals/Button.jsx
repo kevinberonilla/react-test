@@ -9,7 +9,8 @@ class Button extends React.Component {
         
         this.state = {
             title: this.props.title || 'No Title Provided',
-            clickedTitle: this.props.clickedTitle || 'No Clicked Title Provided'
+            clickedTitle: this.props.clickedTitle || this.props.title || 'No Title Provided',
+            href: this.props.href || '#'
         }
         
         this.handleOnClick = this.handleOnClick.bind(this);
@@ -26,7 +27,7 @@ class Button extends React.Component {
     
     render() {
         return (
-            <button className="App-button" onClick={this.handleOnClick}>{this.state.title}</button>
+            <a className="App-button" onClick={this.handleOnClick} href={this.state.href}>{this.state.title}</a>
         );
       }
 }

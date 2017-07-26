@@ -3,17 +3,13 @@ import React from 'react';
 /* --------------------------------------------------
 Components
 -------------------------------------------------- */
-import Button from '../button/Button.jsx';
-
-/* --------------------------------------------------
-Images
--------------------------------------------------- */
-import logo from '../../logo.svg';
+import Header from '../presentationals/Header.jsx';
+import Button from '../presentationals/Button.jsx';
 
 /* --------------------------------------------------
 PageOne Class
 -------------------------------------------------- */
-class PageOne extends React.Component {
+class Home extends React.Component {
     render() {
         var buttons = [];
         var buttonData = [ // Fake data
@@ -31,22 +27,23 @@ class PageOne extends React.Component {
                 title: 'Button 4 Title',
                 clickedTitle: 'New Button 4 Title'
             },
+            {
+                title: 'Go to Page',
+                href: '/page'
+            },
         ]
         
         for (var i = 0; i < buttonData.length; i++) {
-            buttons[i] = <Button title={buttonData[i].title} clickedTitle={buttonData[i].clickedTitle} />;
+            buttons[i] = <Button title={buttonData[i].title} clickedTitle={buttonData[i].clickedTitle} href={buttonData[i].href} />;
         }
         
         return (
             <div className="App">
-               <div className="App-header">
-                   <img src={logo} className="App-logo" alt="logo" />
-                   <h2>Welcome to React</h2>
-                </div>
+                <Header />
                 <p className="App-intro">{buttons}</p>
             </div>
         );
     }
 }
 
-export default PageOne;
+export default Home;
