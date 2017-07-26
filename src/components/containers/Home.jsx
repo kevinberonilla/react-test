@@ -3,7 +3,6 @@ import React from 'react';
 /* --------------------------------------------------
 Components
 -------------------------------------------------- */
-import Header from '../presentationals/Header.jsx';
 import Button from '../presentationals/Button.jsx';
 
 /* --------------------------------------------------
@@ -39,7 +38,6 @@ class Home extends React.Component {
         
         return (
             <div className="App">
-                <Header />
                 <p className="App-intro">{buttons}</p>
             </div>
         );

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 /* --------------------------------------------------
 Button Class
@@ -17,7 +18,6 @@ class Button extends React.Component {
     }
     
     handleOnClick(e) {
-        console.log('click');
         console.log(e);
         
         this.setState({
@@ -27,7 +27,9 @@ class Button extends React.Component {
     
     render() {
         return (
-            <a className="App-button" onClick={this.handleOnClick} href={this.state.href}>{this.state.title}</a>
+            <Link to={this.state.href} className="App-button__container">
+                <button className="App-button" onClick={this.handleOnClick}>{this.state.title}</button>
+            </Link>
         );
       }
 }

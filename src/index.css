@@ -1,37 +1,44 @@
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg); }
+  to {
+    transform: rotate(360deg); } }
+
 html,
 body {
   padding: 0;
   margin: 0;
+  width: 100%;
+  height: 100%;
   box-sizing: border-box; }
 
-.App {
-  text-align: center; }
-
-.App-logo {
+.App .App-logo {
   animation: App-logo-spin infinite 20s linear;
-  height: 80px; }
+  height: 80px;
+  display: inline-block; }
 
-.App-header {
+.App .App-header {
   background-color: #222;
   height: 150px;
-  padding: 40px;
+  padding: 40px 0;
   color: white; }
+  .App .App-header h2 {
+    display: inline-block;
+    margin: 0; }
 
-.App-intro {
+.App .App-container {
+  max-width: 1024px;
+  margin: 0 auto; }
+
+.App .App-intro {
   font-size: large; }
 
-.App-button {
+.App .App-button {
   border: none;
   display: inline-block;
   padding: 8px 12px 12px;
   color: black;
   background: #5ADAFD;
   font-size: 14px; }
-  .App-button + .App-button {
+  .App .App-button__container + .App-button__container {
     margin-left: 8px; }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg); }
-  to {
-    transform: rotate(360deg); } }
