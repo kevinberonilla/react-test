@@ -1,5 +1,8 @@
 import React from 'react';
 
+/* --------------------------------------------------
+Button Class
+-------------------------------------------------- */
 class Button extends React.Component {
     constructor(props) {
         super(props);
