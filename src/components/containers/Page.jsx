@@ -3,14 +3,14 @@ import React from 'react';
 /* --------------------------------------------------
 Components
 -------------------------------------------------- */
-import Button from '../presentationals/Button.jsx';
 import Header from '../presentationals/Header.jsx';
+import Button from '../presentationals/Button.jsx';
 
 /* --------------------------------------------------
 PageOne Class
 -------------------------------------------------- */
 class Page extends React.Component {
-    render() {        
+    render() {
         return (
             <div className="App">
                 <Header />
