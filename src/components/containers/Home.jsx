@@ -4,6 +4,8 @@ import React from 'react';
 Components
 -------------------------------------------------- */
 import Button from '../presentationals/Button.jsx';
+import Header from '../presentationals/Header.jsx';
+
 
 /* --------------------------------------------------
 PageOne Class
@@ -33,12 +35,15 @@ class Home extends React.Component {
         ]
         
         for (var i = 0; i < buttonData.length; i++) {
-            buttons[i] = <Button title={buttonData[i].title} clickedTitle={buttonData[i].clickedTitle} href={buttonData[i].href} />;
+            buttons[i] = <Button key={'button ' + i} title={buttonData[i].title} clickedTitle={buttonData[i].clickedTitle} href={buttonData[i].href} />;
         }
         
         return (
             <div className="App">
-                <p className="App-intro">{buttons}</p>
+                <Header />
+                <div className="App-container">
+                    <p className="App-intro">{buttons}</p>
+                </div>
             </div>
         );
     }

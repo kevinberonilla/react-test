@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 /* --------------------------------------------------
 Images
@@ -15,6 +16,12 @@ class Header extends React.Component {
                 <div className="App-container">
                     <img src={logo} className="App-logo" alt="logo" />
                     <h2>Welcome to React</h2>
+                    <nav className="App-nav">
+                        <ul>
+                            <li><Link to="/">Home</Link></li>
+                            <li><Link to="/page">Page</Link></li>
+                        </ul>
+                    </nav>
                 </div>
             </div>
         );

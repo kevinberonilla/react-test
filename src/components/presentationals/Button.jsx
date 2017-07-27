@@ -8,12 +8,14 @@ class Button extends React.Component {
     constructor(props) {
         super(props);
         
+        // Set default state
         this.state = {
             title: this.props.title || 'No Title Provided',
             clickedTitle: this.props.clickedTitle || this.props.title || 'No Title Provided',
             href: this.props.href || '#'
         }
         
+        // Bind the 'this' keyword for all component methods
         this.handleOnClick = this.handleOnClick.bind(this);
     }
     
@@ -26,10 +28,9 @@ class Button extends React.Component {
     }
     
     render() {
+        console.log('rendered!')
         return (
-            <Link to={this.state.href} className="App-button__container">
-                <button className="App-button" onClick={this.handleOnClick}>{this.state.title}</button>
-            </Link>
+            <Link to={this.state.href} className="App-button" onClick={this.handleOnClick}>{this.state.title}</Link>
         );
       }
 }
