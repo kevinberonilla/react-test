@@ -12,18 +12,20 @@ Button Class
 class Header extends React.Component {
     render() {
         return (
-            <div className="App-header">
-                <div className="App-container">
-                    <img src={logo} className="App-logo" alt="logo" />
-                    <h2>Welcome to React</h2>
-                    <nav className="App-nav">
+            <header className="reactTest-header">
+                <div className="reactTest-container">
+                    <img src={logo} className="reactTest-logo" alt="logo" />
+                    <h2>React and Contentful Test</h2>
+                    {/*
+                    <nav className="reactTest-nav">
                         <ul>
                             <li><Link to="/">Home</Link></li>
-                            <li><Link to="/page">Page</Link></li>
+                            <li><Link to="/product/:id">Product</Link></li>
                         </ul>
                     </nav>
+                    */}
                 </div>
-            </div>
+            </header>
         );
       }
 }

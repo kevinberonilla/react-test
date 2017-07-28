@@ -1,9 +1,3 @@
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg); }
-  to {
-    transform: rotate(360deg); } }
-
 html,
 body {
   padding: 0;
@@ -12,44 +6,56 @@ body {
   height: 100%;
   box-sizing: border-box; }
 
-.App .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-  display: inline-block; }
+body {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300; }
 
-.App .App-header {
+.reactTest main {
+  padding: 40px 0; }
+
+.reactTest p {
+  margin: 0; }
+
+.reactTest .reactTest-logo {
+  height: 30px;
+  display: block; }
+
+.reactTest .reactTest-header {
   background-color: #222;
-  height: 150px;
   padding: 40px 0;
   color: white; }
-  .App .App-header h2 {
+  .reactTest .reactTest-header h2 {
     display: inline-block;
-    margin: 0; }
+    font-size: 32px;
+    font-weight: 400;
+    margin: 40px 0 0; }
 
-.App .App-container {
+.reactTest .reactTest-container {
   max-width: 1024px;
   margin: 0 auto; }
 
-.App .App-intro {
+.reactTest .reactTest-intro {
   font-size: large; }
 
-.App .App-button {
+.reactTest .reactTest-button {
   border: none;
   display: inline-block;
   padding: 8px 12px 12px;
   color: black;
   text-decoration: none;
-  background: #5ADAFD;
-  font-size: 14px; }
-  .App .App-button + .App-button {
+  background: #F88B00;
+  font-size: 14px;
+  font-weight: 600; }
+  .reactTest .reactTest-button + .reactTest-button {
     margin-left: 8px; }
 
-.App .App-nav > ul {
+.reactTest .reactTest-nav > ul {
   list-style: none;
   display: flex;
-  flex: 1 1 auto; }
-  .App .App-nav > ul > li {
+  flex: 1 1 auto;
+  padding: 0; }
+  .reactTest .reactTest-nav > ul > li {
     display: block;
     margin-right: 10px; }
-    .App .App-nav > ul > li a {
+    .reactTest .reactTest-nav > ul > li a {
       color: white; }

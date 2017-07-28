@@ -10,7 +10,7 @@ import './index.css';
 Pages
 -------------------------------------------------- */
 import Home from './components/containers/Home.jsx';
-import Page from './components/containers/Page.jsx';
+import Product from './components/containers/Product.jsx';
 
 /* --------------------------------------------------
 App Class
@@ -23,7 +23,7 @@ class App extends Component {
             <Router history={history}>
                 <Switch>
                     <Route exact path="/" component={Home} />
-                    <Route path="/page" component={Page} />
+                    <Route path="/product/:id" component={Product} />
                 </Switch>
             </Router>
         );

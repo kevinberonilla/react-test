@@ -1,15 +1,6 @@
-$prefix: App;
+$prefix: reactTest;
 $padding-header: 40px;
 $color-brand: #5ADAFD;
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-
 html,
 body {
     padding: 0;
@@ -18,22 +9,31 @@ body {
     height: 100%;
     box-sizing: border-box;
 }
-
+body {
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300;
+}
 .#{$prefix} {
+    main {
+        padding: 40px 0;
+    }
+    p {
+        margin: 0;
+    }
     .#{$prefix} {
         &-logo {
-            animation: App-logo-spin infinite 20s linear;
-            height: 80px;
-            display: inline-block;
+            height: 30px;
+            display: block;
         }
         &-header {
             background-color: #222;
-            height: 150px;
             padding: $padding-header 0;
             color: white;
             h2 {
                 display: inline-block;
-                margin: 0;
+                font-size: 32px;
+                font-weight: 400;
+                margin: 40px 0 0;
             }
         }
         &-container {
@@ -49,8 +49,9 @@ body {
             padding: 8px 12px 12px;
             color: black;
             text-decoration: none;
-            background: #5ADAFD;
+            background: #F88B00;
             font-size: 14px;
+            font-weight: 600;
             +.#{$prefix}-button {
                 margin-left: 8px;
             }
@@ -60,6 +61,7 @@ body {
                 list-style: none;
                 display: flex;
                 flex: 1 1 auto;
+                padding: 0;
                 >li {
                     display: block;
                     margin-right: 10px;

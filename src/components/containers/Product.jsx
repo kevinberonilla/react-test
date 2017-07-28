@@ -12,12 +12,12 @@ PageOne Class
 class Page extends React.Component {
     render() {
         return (
-            <div className="App">
+            <div className="reactTest">
                 <Header />
-                <div className="App-container">
+                <main className="App-container">
                     <p>This is another page.</p>
                     <Button title="Go Back" href="/" />
-                </div>
+                </main>
             </div>
         );
     }
