@@ -12,6 +12,10 @@ PageOne Class
 -------------------------------------------------- */
 class Home extends React.Component {
     render() {
+        const ENDPOINT = 'https://cdn.contentful.com';
+        var apiKey = 'bfaffc825e3e5cd47ef44ab90661e671163b158f5727e3e053cb132daf258eca';
+        var spaceId = 'oq5pma2rf0jg';
+        
         var buttons = [];
         var buttonData = [ // Fake data
             {
