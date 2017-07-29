@@ -11,13 +11,50 @@ import Button from '../presentationals/Button.jsx';
 PageOne Class
 -------------------------------------------------- */
 class Home extends React.Component {
-    render() {
+    constructor(props) {
+        super(props);
+        
+        this.state = {
+            data: this.props.data || []
+        }
+        
         const ENDPOINT = 'https://cdn.contentful.com';
-        var apiKey = 'bfaffc825e3e5cd47ef44ab90661e671163b158f5727e3e053cb132daf258eca';
         var spaceId = 'oq5pma2rf0jg';
+        var apiKey = 'bfaffc825e3e5cd47ef44ab90661e671163b158f5727e3e053cb132daf258eca';
+        var self = this;
+        
+        // Fix this endpoint to only get products in the Toys category
+        fetch(`${ENDPOINT}/spaces/${spaceId}/entries?access_token=${apiKey}`, {
+                method: 'GET'
+            }).then(function(response) {
+                if (response.ok) {
+                    return response.json()
+                } else {
+                    // Handle errors
+                }
+            }).then(function(json) {
+                self.setState({
+                    data: json.items
+                });
+                console.log(json.items)
+            });
+    }
+    render() {
+        var data = this.state.data;
+        var list = [];
+        
+        for (var i = 0; i < data.length; i++) {
+            list.push(
+                <div key={'item ' + i}>{data[i].fields.productName}</div>
+            );
+        }
         
         var buttons = [];
         var buttonData = [ // Fake data
+            {
+                title: 'Go to Page Template',
+                href: '/product'
+            },
             {
                 title: 'Button 1 Title',
                 clickedTitle: 'New Button 1 Title'
@@ -31,11 +68,7 @@ class Home extends React.Component {
             {
                 title: 'Button 4 Title',
                 clickedTitle: 'New Button 4 Title'
-            },
-            {
-                title: 'Go to Page',
-                href: '/page'
-            },
+            }
         ]
         
         for (var i = 0; i < buttonData.length; i++) {
@@ -46,7 +79,8 @@ class Home extends React.Component {
             <div className="reactTest">
                 <Header />
                 <main className="reactTest-container">
-                    {buttons}
+                    <div>{buttons}</div>
+                    <div>{list}</div>
                 </main>
             </div>
         );

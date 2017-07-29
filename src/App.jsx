@@ -23,7 +23,7 @@ class App extends Component {
             <Router history={history}>
                 <Switch>
                     <Route exact path="/" component={Home} />
-                    <Route path="/product/:id" component={Product} />
+                    <Route path="/product" component={Product} />
                 </Switch>
             </Router>
         );
