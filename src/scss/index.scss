@@ -1,18 +1,22 @@
 $prefix: reactTest;
 $padding-header: 40px;
 $color-brand: #5ADAFD;
+* {
+    box-sizing: border-box;
+}
 html,
 body {
     padding: 0;
     margin: 0;
     width: 100%;
     height: 100%;
-    box-sizing: border-box;
 }
+
 body {
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     font-weight: 300;
 }
+
 .#{$prefix} {
     main {
         padding: 40px 0;
@@ -67,6 +71,28 @@ body {
                     margin-right: 10px;
                     a {
                         color: white;
+                    }
+                }
+            }
+        }
+        &-products {
+            padding: 0;
+            margin: 40px -5px 0 -5px;
+            list-style: none;
+            display: flex;
+            align-items: stretch;
+            align-content: flex-start;
+            flex-wrap: wrap;
+            &__item {
+                display: block;
+                padding: 0 5px;
+                width: 25%;
+                flex: 0 0 auto;
+                &__image {
+                    img {
+                        width: 100%;
+                        height: 120px;
+                        object-fit: cover;
                     }
                 }
             }

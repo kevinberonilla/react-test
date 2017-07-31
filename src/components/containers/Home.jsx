@@ -18,34 +18,42 @@ class Home extends React.Component {
             data: this.props.data || []
         }
         
-        const ENDPOINT = 'https://cdn.contentful.com';
+        const URI = 'https://cdn.contentful.com';
         var spaceId = 'oq5pma2rf0jg';
         var apiKey = 'bfaffc825e3e5cd47ef44ab90661e671163b158f5727e3e053cb132daf258eca';
+        var contentTypeId = '2PqfXUJwE8qSYKuM0U6w8M'; // Products
+        var orderBy = 'sys.createdAt';
+        var endpoint = `${URI}/spaces/${spaceId}/entries?content_type=${contentTypeId}&order=${orderBy}&access_token=${apiKey}`;
+        console.log(endpoint);
         var self = this;
         
-        // Fix this endpoint to only get products in the Toys category
-        fetch(`${ENDPOINT}/spaces/${spaceId}/entries?access_token=${apiKey}`, {
+        fetch(endpoint, {
                 method: 'GET'
             }).then(function(response) {
                 if (response.ok) {
                     return response.json()
                 } else {
-                    // Handle errors
+                    alert(response.status + ': ' + response.statusText);
                 }
             }).then(function(json) {
                 self.setState({
                     data: json.items
                 });
-                console.log(json.items)
+                console.log(json.items);
             });
     }
     render() {
         var data = this.state.data;
-        var list = [];
+        var products = [];
         
         for (var i = 0; i < data.length; i++) {
-            list.push(
-                <div key={'item ' + i}>{data[i].fields.productName}</div>
+            products.push(
+                <li key={'item ' + i} className="reactTest-products__item">
+                    <div className="reactTest-products__item__image">
+                        <img src={data[i].fields.image[0]} />
+                    </div>
+                    <h4 className="reactTest-products__item__title">{data[i].fields.productName}</h4>
+                </li>
             );
         }
         
@@ -80,7 +88,9 @@ class Home extends React.Component {
                 <Header />
                 <main className="reactTest-container">
                     <div>{buttons}</div>
-                    <div>{list}</div>
+                    <ul className="reactTest-products">
+                        {products}
+                    </ul>
                 </main>
             </div>
         );

@@ -1,10 +1,12 @@
+* {
+  box-sizing: border-box; }
+
 html,
 body {
   padding: 0;
   margin: 0;
   width: 100%;
-  height: 100%;
-  box-sizing: border-box; }
+  height: 100%; }
 
 body {
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
@@ -59,3 +61,21 @@ body {
     margin-right: 10px; }
     .reactTest .reactTest-nav > ul > li a {
       color: white; }
+
+.reactTest .reactTest-products {
+  padding: 0;
+  margin: 40px -5px 0 -5px;
+  list-style: none;
+  display: flex;
+  align-items: stretch;
+  align-content: flex-start;
+  flex-wrap: wrap; }
+  .reactTest .reactTest-products__item {
+    display: block;
+    padding: 0 5px;
+    width: 25%;
+    flex: 0 0 auto; }
+    .reactTest .reactTest-products__item__image img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover; }
