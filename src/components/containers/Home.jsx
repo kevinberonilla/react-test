@@ -15,31 +15,33 @@ class Home extends React.Component {
     constructor(props) {
         super(props);
         
-        this.state = {
-            productData: this.props.data || [],
-            includedAssets: this.props.includes || []
-        }
-        
         const URI = 'https://cdn.contentful.com';
         var spaceId = 'oq5pma2rf0jg';
         var apiKey = 'bfaffc825e3e5cd47ef44ab90661e671163b158f5727e3e053cb132daf258eca';
         var contentTypeId = '2PqfXUJwE8qSYKuM0U6w8M'; // Products
         var orderBy = 'sys.createdAt';
         var endpoint = `${URI}/spaces/${spaceId}/entries?content_type=${contentTypeId}&order=${orderBy}&access_token=${apiKey}`;
-        var self = this;
+        var self = this; // Used in resolving promises
         
+        // Set default state
+        this.state = {
+            productData: this.props.data || [],
+            includedAssets: this.props.includes || []
+        }
+        
+        // API request
         fetch(endpoint, {
                 method: 'GET'
             }).then(function(response) {
-                if (response.ok) {
+                if (response.ok) { // Status 200
                     return response.json()
-                } else {
+                } else { // Handle errors
                     alert(response.status + ': ' + response.statusText);
                 }
             }).then(function(json) {
                 self.setState({
-                    productData: json.items,
-                    includedAssets: json.includes.Asset
+                    productData: json.items, // Array of entries
+                    includedAssets: json.includes.Asset // Array of assets included with the entries
                 });
             });
     }
@@ -48,10 +50,12 @@ class Home extends React.Component {
         var includedAssets = this.state.includedAssets;
         var products = []
         
+        // Build the list of products
         productData.forEach(function(product, index) {
             var imgId = product.fields.image[0].sys.id;
             var imgUrl = '';
             
+            // Find the asset associated with the current product
             for (var i = 0; i < includedAssets.length; i++) {
                 if (typeof(includedAssets[i].sys.id) !== 'undefined' && includedAssets[i].sys.id === imgId) {
                     imgUrl = includedAssets[i].fields.file.url;

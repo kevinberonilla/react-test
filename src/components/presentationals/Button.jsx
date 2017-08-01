@@ -11,7 +11,7 @@ class Button extends React.Component {
         // Set default state
         this.state = {
             title: this.props.title || 'No Title Provided',
-//            clickedTitle: this.props.clickedTitle || this.props.title || 'No Title Provided',
+            // clickedTitle: this.props.clickedTitle || this.props.title || 'No Title Provided',
             href: this.props.href || '#'
         }
         

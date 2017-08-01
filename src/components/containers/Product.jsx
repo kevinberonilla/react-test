@@ -13,14 +13,15 @@ class Product extends React.Component {
     constructor(props) {
         super(props);
         
-        var urlParams = new URLSearchParams(props.location.search);
+        var urlParams = new URLSearchParams(this.props.location.search); // Get id param from URL
         
+        // Set default state
         this.state = {
-            id: props.id || urlParams.get('id') || ''
+            id: this.props.id || urlParams.get('id') || ''
         }
     }
     render() {
-        console.log(this.state.id)
+        console.log(this.state.id);
         return (
             <div className="reactTest">
                 <Header />
