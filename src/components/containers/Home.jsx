@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 /* --------------------------------------------------
 Components
@@ -15,7 +16,8 @@ class Home extends React.Component {
         super(props);
         
         this.state = {
-            data: this.props.data || []
+            productData: this.props.data || [],
+            includedAssets: this.props.includes || []
         }
         
         const URI = 'https://cdn.contentful.com';
@@ -24,7 +26,6 @@ class Home extends React.Component {
         var contentTypeId = '2PqfXUJwE8qSYKuM0U6w8M'; // Products
         var orderBy = 'sys.createdAt';
         var endpoint = `${URI}/spaces/${spaceId}/entries?content_type=${contentTypeId}&order=${orderBy}&access_token=${apiKey}`;
-        console.log(endpoint);
         var self = this;
         
         fetch(endpoint, {
@@ -37,30 +38,43 @@ class Home extends React.Component {
                 }
             }).then(function(json) {
                 self.setState({
-                    data: json.items
+                    productData: json.items,
+                    includedAssets: json.includes.Asset
                 });
-                console.log(json.items);
             });
     }
     render() {
-        var data = this.state.data;
-        var products = [];
+        var productData = this.state.productData;
+        var includedAssets = this.state.includedAssets;
+        var products = []
         
-        for (var i = 0; i < data.length; i++) {
+        productData.forEach(function(product, index) {
+            var imgId = product.fields.image[0].sys.id;
+            var imgUrl = '';
+            
+            for (var i = 0; i < includedAssets.length; i++) {
+                if (typeof(includedAssets[i].sys.id) !== 'undefined' && includedAssets[i].sys.id === imgId) {
+                    imgUrl = includedAssets[i].fields.file.url;
+                    break;
+                }
+            }
+            
             products.push(
-                <li key={'item ' + i} className="reactTest-products__item">
-                    <div className="reactTest-products__item__image">
-                        <img src={data[i].fields.image[0]} />
-                    </div>
-                    <h4 className="reactTest-products__item__title">{data[i].fields.productName}</h4>
+                <li key={'item ' + index} className="reactTest-products__item">
+                    <Link to={`/product/?id=${product.sys.id}`}>
+                        <div className="reactTest-products__item-image">
+                            <img src={imgUrl} alt={product.fields.productName}/>
+                        </div>
+                        <h4 className="reactTest-products__item-title">{product.fields.productName}</h4>
+                    </Link>
                 </li>
             );
-        }
+        });
         
         var buttons = [];
         var buttonData = [ // Fake data
             {
-                title: 'Go to Page Template',
+                title: 'Go to Product Template',
                 href: '/product'
             },
             {
@@ -79,9 +93,9 @@ class Home extends React.Component {
             }
         ]
         
-        for (var i = 0; i < buttonData.length; i++) {
-            buttons[i] = <Button key={'button ' + i} title={buttonData[i].title} href={buttonData[i].href} />;
-        }
+        buttonData.forEach(function(button, index) {
+            buttons[index] = <Button key={'button ' + index} title={button.title} href={button.href} />;
+        });
         
         return (
             <div className="reactTest">

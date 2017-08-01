@@ -10,7 +10,17 @@ import Button from '../presentationals/Button.jsx';
 Product Class
 -------------------------------------------------- */
 class Product extends React.Component {
-    render() {        
+    constructor(props) {
+        super(props);
+        
+        var urlParams = new URLSearchParams(props.location.search);
+        
+        this.state = {
+            id: props.id || urlParams.get('id') || ''
+        }
+    }
+    render() {
+        console.log(this.state.id)
         return (
             <div className="reactTest">
                 <Header />
