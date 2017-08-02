@@ -15,43 +15,50 @@ class Home extends React.Component {
     constructor(props) {
         super(props);
         
-        const URI = 'https://cdn.contentful.com';
-        var spaceId = 'oq5pma2rf0jg';
-        var apiKey = 'bfaffc825e3e5cd47ef44ab90661e671163b158f5727e3e053cb132daf258eca';
-        var contentTypeId = '2PqfXUJwE8qSYKuM0U6w8M'; // Products
-        var orderBy = 'sys.createdAt';
-        var endpoint = `${URI}/spaces/${spaceId}/entries?content_type=${contentTypeId}&order=${orderBy}&access_token=${apiKey}`;
-        var self = this; // Used in resolving promises
-        
         // Set default state
         this.state = {
             productData: this.props.data || [],
             includedAssets: this.props.includes || []
         }
         
-        // API request
-        fetch(endpoint, {
-                method: 'GET'
-            }).then(function(response) {
-                if (response.ok) { // Status 200
-                    return response.json()
-                } else { // Handle errors
-                    alert(response.status + ': ' + response.statusText);
-                }
-            }).then(function(json) {
-                self.setState({
-                    productData: json.items, // Array of entries
-                    includedAssets: json.includes.Asset // Array of assets included with the entries
-                });
-            });
+        const URI = 'https://cdn.contentful.com';
+        var spaceId = 'oq5pma2rf0jg';
+        var apiKey = 'bfaffc825e3e5cd47ef44ab90661e671163b158f5727e3e053cb132daf258eca';
+        var contentTypeId = '2PqfXUJwE8qSYKuM0U6w8M'; // Products
+        var orderBy = 'sys.createdAt';
+        var endpoint = `${URI}/spaces/${spaceId}/entries?content_type=${contentTypeId}&order=${orderBy}&access_token=${apiKey}`;
+        
+        // Bind the 'this' keyword for component methods
+        this.getProductList = this.getProductList.bind(this);
+        
+        // Get the data
+        this.getProductList(endpoint);
     }
+    
+    getProductList(endpoint) {
+        fetch(endpoint, {
+            method: 'GET'
+        }).then((response) => {
+            if (response.ok) { // Status 200
+                return response.json();
+            } else { // Handle errors
+                alert(response.status + ': ' + response.statusText);
+            }
+        }).then((json) => {
+            this.setState({
+                productData: json.items, // Array of entries
+                includedAssets: json.includes.Asset // Array of assets included with the entries
+            });
+        });
+    }
+    
     render() {
         var productData = this.state.productData;
         var includedAssets = this.state.includedAssets;
-        var products = []
+        var products = [];
         
         // Build the list of products
-        productData.forEach(function(product, index) {
+        productData.forEach((product, index) => {
             var imgId = product.fields.image[0].sys.id;
             var imgUrl = '';
             
@@ -97,7 +104,7 @@ class Home extends React.Component {
             }
         ]
         
-        buttonData.forEach(function(button, index) {
+        buttonData.forEach((button, index) => {
             buttons[index] = <Button key={'button ' + index} title={button.title} href={button.href} />;
         });
         

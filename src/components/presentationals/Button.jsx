@@ -15,7 +15,7 @@ class Button extends React.Component {
             href: this.props.href || '#'
         }
         
-        // Bind the 'this' keyword for all component methods
+        // Bind the 'this' keyword for component methods
         this.handleOnClick = this.handleOnClick.bind(this);
     }
     
