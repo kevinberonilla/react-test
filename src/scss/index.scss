@@ -4,6 +4,7 @@ $color-brand: #5ADAFD;
 * {
     box-sizing: border-box;
 }
+
 html,
 body {
     padding: 0;
@@ -61,12 +62,12 @@ body {
             }
         }
         &-nav {
-            > ul {
+            >ul {
                 list-style: none;
                 display: flex;
                 flex: 1 1 auto;
                 padding: 0;
-                > li {
+                >li {
                     display: block;
                     margin-right: 10px;
                     a {
@@ -108,9 +109,48 @@ body {
                         object-fit: cover;
                     }
                 }
-                > a {
+                >a {
                     text-decoration: none;
                 }
+            }
+        }
+        &-product {
+            &-image {
+                max-width: 50%;
+                img {
+                    max-width: 100%;
+                    height: auto;
+                }
+            }
+            &-content {
+                display: none;
+                &--show {
+                    display: block;
+                }
+            }
+        }
+        &-grid {
+            align-items: stretch;
+            align-content: flex-start;
+            display: flex;
+            &--inline {
+                display: inline-flex;
+            }
+            &--negate-padding {
+                margin-left: -10px;
+                margin-right: -10px;
+            }
+        }
+        &-col {
+            flex: 1 1 auto;
+            &--no-shrink {
+                flex-shrink: 0;
+            }
+            &--no-grow {
+                flex-grow: 0;
+            }
+            &--padded {
+                padding: 0 10px;
             }
         }
     }

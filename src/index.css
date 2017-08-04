@@ -93,3 +93,33 @@ body {
       object-fit: cover; }
     .reactTest .reactTest-products__item > a {
       text-decoration: none; }
+
+.reactTest .reactTest-product-image {
+  max-width: 50%; }
+  .reactTest .reactTest-product-image img {
+    max-width: 100%;
+    height: auto; }
+
+.reactTest .reactTest-product-content {
+  display: none; }
+  .reactTest .reactTest-product-content--show {
+    display: block; }
+
+.reactTest .reactTest-grid {
+  align-items: stretch;
+  align-content: flex-start;
+  display: flex; }
+  .reactTest .reactTest-grid--inline {
+    display: inline-flex; }
+  .reactTest .reactTest-grid--negate-padding {
+    margin-left: -10px;
+    margin-right: -10px; }
+
+.reactTest .reactTest-col {
+  flex: 1 1 auto; }
+  .reactTest .reactTest-col--no-shrink {
+    flex-shrink: 0; }
+  .reactTest .reactTest-col--no-grow {
+    flex-grow: 0; }
+  .reactTest .reactTest-col--padded {
+    padding: 0 10px; }

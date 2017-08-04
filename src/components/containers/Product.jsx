@@ -19,22 +19,26 @@ class Product extends React.Component {
         this.state = {
             id: this.props.id || urlParams.get('id') || '', // Id of the product
             product: this.props.product || {}, // Object with product fields
+            imageUrl: this.props.imageUrl || '',
+            retrieved: false
         }
         
         const URI = 'https://cdn.contentful.com';
         var spaceId = 'oq5pma2rf0jg';
         var apiKey = 'bfaffc825e3e5cd47ef44ab90661e671163b158f5727e3e053cb132daf258eca';
-        var include = 2;
-        var endpoint = `${URI}/spaces/${spaceId}/entries/${this.state.id}?access_token=${apiKey}&include=${include}`;
+        var productDataEndpoint = `${URI}/spaces/${spaceId}/entries/${this.state.id}?access_token=${apiKey}`;
+        var imageDataEndpointTemplate = `${URI}/spaces/${spaceId}/assets/{id}?access_token=${apiKey}`;
         
         // Bind the 'this' keyword for component methods
         this.getProductData = this.getProductData.bind(this);
+        this.getProductImage = this.getProductImage.bind(this);
+        this.setProductState = this.setProductState.bind(this);
         
         // Get the data
-        this.getProductData(endpoint);
+        this.getProductData(productDataEndpoint, imageDataEndpointTemplate);
     }
     
-    getProductData(endpoint) {        
+    getProductData(endpoint, imageDataEndpointTemplate) {     
         fetch(endpoint, {
             method: 'GET'
         }).then((response) => {
@@ -44,20 +48,62 @@ class Product extends React.Component {
                 alert(response.status + ': ' + response.statusText);
             }
         }).then((json) => {
-            this.setState({
-                product: json.fields
-            });
+            var product = json.fields;
+            var imageId = product.image[0].sys.id;
+            var imageDataEndpoint = imageDataEndpointTemplate.replace('{id}', imageId);
+            
+            this.getProductImage(imageDataEndpoint, product);
+        });
+    }
+    
+    getProductImage(endpoint, product) {
+        fetch(endpoint, {
+            method: 'GET'
+        }).then((response) => {
+            if (response.ok) { // Status 200
+                return response.json();
+            } else { // Handle errors
+                alert(response.status + ': ' + response.statusText);
+            }
+        }).then((json) => {
+            var imageUrl = json.fields.file.url;
+            
+            this.setProductState(product, imageUrl);
+        });
+    }
+    
+    setProductState(product, imageUrl) {
+        this.setState({
+            product: product,
+            imageUrl: imageUrl,
+            retrieved: true
         });
     }
     
     render() {
-        console.log(this.state.product);
+        console.log(this.state);
+        var retrieved = this.state.retrieved;
+        var product = this.state.product || {};
+        var imageUrl = this.state.imageUrl || '';
+        
+        console.log(product.website);
+        
         return (
             <div className="reactTest">
                 <Header />
                 <main className="reactTest-container">
-                    <p>This is another page.</p>
-                    <Button title="Go Back" href="/" />
+                    <div className="reactTest-grid">
+                        <div className="reactTest-col reactTest-product-image">
+                            <img src={imageUrl} alt={product.productName} />
+                        </div>
+                        <div className={'reactTest-col reactTest-product-content' + (retrieved ? ' reactTest-product-content--show' : '')}>
+                            <h2>{product.productName}</h2>
+                            <h4>${product.price} ({product.quantity} remaining)</h4>
+                            <p>{product.productDescription}</p>
+                            <Button title="Go Back" href="/" />
+                            <Button title="Buy Now" href={product.website} target="_blank" />
+                        </div>
+                    </div>
                 </main>
             </div>
         );
