@@ -13,6 +13,7 @@ class Button extends React.Component {
             title: this.props.title || 'No Title Provided',
             // clickedTitle: this.props.clickedTitle || this.props.title || 'No Title Provided',
             href: this.props.href || '#'
+            // ADD TARGET HERE
         }
         
         // Bind the 'this' keyword for component methods
@@ -20,7 +21,7 @@ class Button extends React.Component {
     }
     
     handleOnClick(e) {
-        console.log(e);
+        //console.log(e);
         
         /*this.setState({
             title: this.state.clickedTitle
@@ -28,7 +29,6 @@ class Button extends React.Component {
     }
     
     render() {
-        console.log('rendered!')
         return (
             <Link to={this.state.href} className="reactTest-button" onClick={this.handleOnClick}>{this.state.title}</Link>
         );

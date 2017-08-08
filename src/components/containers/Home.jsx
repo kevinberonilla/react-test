@@ -82,7 +82,7 @@ class Home extends React.Component {
             );
         });
         
-        var buttons = [];
+       /* var buttons = [];
         var buttonData = [ // Fake data
             {
                 title: 'Go to Product Template',
@@ -106,13 +106,12 @@ class Home extends React.Component {
         
         buttonData.forEach((button, index) => {
             buttons[index] = <Button key={'button ' + index} title={button.title} href={button.href} />;
-        });
+        });*/
         
         return (
             <div className="reactTest">
                 <Header />
                 <main className="reactTest-container">
-                    <div>{buttons}</div>
                     <ul className="reactTest-products">
                         {products}
                     </ul>

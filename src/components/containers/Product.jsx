@@ -81,12 +81,9 @@ class Product extends React.Component {
     }
     
     render() {
-        console.log(this.state);
         var retrieved = this.state.retrieved;
         var product = this.state.product || {};
         var imageUrl = this.state.imageUrl || '';
-        
-        console.log(product.website);
         
         return (
             <div className="reactTest">
