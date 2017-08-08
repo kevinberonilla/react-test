@@ -1,6 +1,6 @@
-$prefix: reactTest;
-$padding-header: 40px;
-$color-brand: #5ADAFD;
+@import  './variables';
+@import  './mixins';
+
 * {
     box-sizing: border-box;
 }
@@ -26,6 +26,26 @@ body {
         margin: 0;
     }
     .#{$prefix} {
+        @include utility-classes(margin, $spacing-directions, $spacing-sizes);
+        @include utility-classes(padding, $spacing-directions, $spacing-sizes);
+        &-hide {
+            display: none;
+        }
+        &-show {
+            display: block;
+            &--inline-block {
+                display: inline-block;
+            }
+            &--inline {
+                display: inline;
+            }
+            &--flex {
+                display: flex;
+            }
+            &--inline-flex {
+                display: inline-flex;
+            }
+        }
         &-logo {
             height: 30px;
             display: block;

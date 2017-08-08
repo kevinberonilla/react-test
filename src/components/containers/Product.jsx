@@ -93,6 +93,9 @@ class Product extends React.Component {
                         <div className="reactTest-col reactTest-product-image">
                             <img src={imageUrl} alt={product.productName} />
                         </div>
+                        <div className={'reactTest-col reactTest-loading' + (retrieved ? ' reactTest-hide' : '')}>
+                            Loading
+                        </div>
                         <div className={'reactTest-col reactTest-product-content' + (retrieved ? ' reactTest-product-content--show' : '')}>
                             <h2>{product.productName}</h2>
                             <h4>${product.price} ({product.quantity} remaining)</h4>

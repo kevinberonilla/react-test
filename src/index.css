@@ -18,6 +18,65 @@ body {
 .reactTest p {
   margin: 0; }
 
+.reactTest .reactTest-margin--small {
+  margin: 0.75rem; }
+
+.reactTest .reactTest-margin--medium {
+  margin: 1rem; }
+
+.reactTest .reactTest-margin--large {
+  margin: 1.5rem; }
+
+.reactTest .reactTest-margin-top--small {
+  margin-top: 0.75rem; }
+
+.reactTest .reactTest-margin-top--medium {
+  margin-top: 1rem; }
+
+.reactTest .reactTest-margin-top--large {
+  margin-top: 1.5rem; }
+
+.reactTest .reactTest-margin-right--small {
+  margin-right: 0.75rem; }
+
+.reactTest .reactTest-margin-right--medium {
+  margin-right: 1rem; }
+
+.reactTest .reactTest-margin-right--large {
+  margin-right: 1.5rem; }
+
+.reactTest .reactTest-margin-bottom--small {
+  margin-bottom: 0.75rem; }
+
+.reactTest .reactTest-margin-bottom--medium {
+  margin-bottom: 1rem; }
+
+.reactTest .reactTest-margin-bottom--large {
+  margin-bottom: 1.5rem; }
+
+.reactTest .reactTest-margin-left--small {
+  margin-left: 0.75rem; }
+
+.reactTest .reactTest-margin-left--medium {
+  margin-left: 1rem; }
+
+.reactTest .reactTest-margin-left--large {
+  margin-left: 1.5rem; }
+
+.reactTest .reactTest-hide {
+  display: none; }
+
+.reactTest .reactTest-show {
+  display: block; }
+  .reactTest .reactTest-show--inline-block {
+    display: inline-block; }
+  .reactTest .reactTest-show--inline {
+    display: inline; }
+  .reactTest .reactTest-show--flex {
+    display: flex; }
+  .reactTest .reactTest-show--inline-flex {
+    display: inline-flex; }
+
 .reactTest .reactTest-logo {
   height: 30px;
   display: block; }

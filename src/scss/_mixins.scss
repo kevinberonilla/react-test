@@ -1,0 +1,18 @@
+@mixin utility-classes($property, $directions, $sizes) {
+    &-#{$property} {
+        @each $size in $sizes { // No directions first
+            &--#{nth($size, 1)} {
+                #{$property}: #{nth($size, 2)};
+            }
+        }
+        @each $direction in $directions {
+            &-#{$direction} {
+                @each $size in $sizes {
+                    &--#{nth($size, 1)} {
+                        #{$property}-#{$direction}: #{nth($size, 2)};
+                    }
+                }
+            }
+        }
+    }
+}
