@@ -63,6 +63,51 @@ body {
 .reactTest .reactTest-margin-left--large {
   margin-left: 1.5rem; }
 
+.reactTest .reactTest-padding--small {
+  padding: 0.75rem; }
+
+.reactTest .reactTest-padding--medium {
+  padding: 1rem; }
+
+.reactTest .reactTest-padding--large {
+  padding: 1.5rem; }
+
+.reactTest .reactTest-padding-top--small {
+  padding-top: 0.75rem; }
+
+.reactTest .reactTest-padding-top--medium {
+  padding-top: 1rem; }
+
+.reactTest .reactTest-padding-top--large {
+  padding-top: 1.5rem; }
+
+.reactTest .reactTest-padding-right--small {
+  padding-right: 0.75rem; }
+
+.reactTest .reactTest-padding-right--medium {
+  padding-right: 1rem; }
+
+.reactTest .reactTest-padding-right--large {
+  padding-right: 1.5rem; }
+
+.reactTest .reactTest-padding-bottom--small {
+  padding-bottom: 0.75rem; }
+
+.reactTest .reactTest-padding-bottom--medium {
+  padding-bottom: 1rem; }
+
+.reactTest .reactTest-padding-bottom--large {
+  padding-bottom: 1.5rem; }
+
+.reactTest .reactTest-padding-left--small {
+  padding-left: 0.75rem; }
+
+.reactTest .reactTest-padding-left--medium {
+  padding-left: 1rem; }
+
+.reactTest .reactTest-padding-left--large {
+  padding-left: 1.5rem; }
+
 .reactTest .reactTest-hide {
   display: none; }
 
