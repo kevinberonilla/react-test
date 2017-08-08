@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 Components
 -------------------------------------------------- */
 import Header from '../presentationals/Header.jsx';
-import Button from '../presentationals/Button.jsx';
 
 
 /* --------------------------------------------------
@@ -18,7 +17,8 @@ class Home extends React.Component {
         // Set default state
         this.state = {
             productData: this.props.data || [],
-            includedAssets: this.props.includes || []
+            includedAssets: this.props.includes || [],
+            loading: this.props.loading || true
         }
         
         const URI = 'https://cdn.contentful.com';
@@ -47,7 +47,8 @@ class Home extends React.Component {
         }).then((json) => {
             this.setState({
                 productData: json.items, // Array of entries
-                includedAssets: json.includes.Asset // Array of assets included with the entries
+                includedAssets: json.includes.Asset, // Array of assets included with the entries
+                loading: false
             });
         });
     }
@@ -55,6 +56,7 @@ class Home extends React.Component {
     render() {
         var productData = this.state.productData;
         var includedAssets = this.state.includedAssets;
+        var loading = this.state.loading;
         var products = [];
         
         // Build the list of products
@@ -82,36 +84,13 @@ class Home extends React.Component {
             );
         });
         
-       /* var buttons = [];
-        var buttonData = [ // Fake data
-            {
-                title: 'Go to Product Template',
-                href: '/product'
-            },
-            {
-                title: 'Button 1 Title',
-                clickedTitle: 'New Button 1 Title'
-            },
-            {
-                clickedTitle: 'New Button 2 Title'
-            },
-            {
-                title: 'Button 3 Title'
-            },
-            {
-                title: 'Button 4 Title',
-                clickedTitle: 'New Button 4 Title'
-            }
-        ]
-        
-        buttonData.forEach((button, index) => {
-            buttons[index] = <Button key={'button ' + index} title={button.title} href={button.href} />;
-        });*/
-        
         return (
             <div className="reactTest">
                 <Header />
                 <main className="reactTest-container">
+                    <div className={loading ? '' : 'reactTest-hide'}>
+                        LOADING
+                    </div>
                     <ul className="reactTest-products">
                         {products}
                     </ul>

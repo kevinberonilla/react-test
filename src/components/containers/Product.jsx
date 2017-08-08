@@ -20,7 +20,7 @@ class Product extends React.Component {
             id: this.props.id || urlParams.get('id') || '', // Id of the product
             product: this.props.product || {}, // Object with product fields
             imageUrl: this.props.imageUrl || '',
-            retrieved: false
+            loading: this.props.loading || true
         }
         
         const URI = 'https://cdn.contentful.com';
@@ -76,14 +76,14 @@ class Product extends React.Component {
         this.setState({
             product: product,
             imageUrl: imageUrl,
-            retrieved: true
+            loading: false
         });
     }
     
     render() {
-        var retrieved = this.state.retrieved;
         var product = this.state.product || {};
         var imageUrl = this.state.imageUrl || '';
+        var loading = this.state.loading;
         
         return (
             <div className="reactTest">
@@ -93,10 +93,10 @@ class Product extends React.Component {
                         <div className="reactTest-col reactTest-product-image">
                             <img src={imageUrl} alt={product.productName} />
                         </div>
-                        <div className={'reactTest-col reactTest-loading' + (retrieved ? ' reactTest-hide' : '')}>
-                            Loading
+                        <div className={'reactTest-col reactTest-loading' + (loading ? '' : ' reactTest-hide')}>
+                            LOADING
                         </div>
-                        <div className={'reactTest-col reactTest-product-content' + (retrieved ? ' reactTest-product-content--show' : '')}>
+                        <div className={'reactTest-col reactTest-product-content' + (loading ? '' : ' reactTest-product-content--show')}>
                             <h2>{product.productName}</h2>
                             <h4>${product.price} ({product.quantity} remaining)</h4>
                             <p>{product.productDescription}</p>
