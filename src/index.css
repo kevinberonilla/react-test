@@ -18,6 +18,9 @@ body {
 .reactTest p {
   margin: 0; }
 
+.reactTest .reactTest-margin--none {
+  margin: 0; }
+
 .reactTest .reactTest-margin--small {
   margin: 0.75rem; }
 
@@ -25,7 +28,10 @@ body {
   margin: 1rem; }
 
 .reactTest .reactTest-margin--large {
-  margin: 1.5rem; }
+  margin: 1.75rem; }
+
+.reactTest .reactTest-margin-top--none {
+  margin-top: 0; }
 
 .reactTest .reactTest-margin-top--small {
   margin-top: 0.75rem; }
@@ -34,7 +40,10 @@ body {
   margin-top: 1rem; }
 
 .reactTest .reactTest-margin-top--large {
-  margin-top: 1.5rem; }
+  margin-top: 1.75rem; }
+
+.reactTest .reactTest-margin-right--none {
+  margin-right: 0; }
 
 .reactTest .reactTest-margin-right--small {
   margin-right: 0.75rem; }
@@ -43,7 +52,10 @@ body {
   margin-right: 1rem; }
 
 .reactTest .reactTest-margin-right--large {
-  margin-right: 1.5rem; }
+  margin-right: 1.75rem; }
+
+.reactTest .reactTest-margin-bottom--none {
+  margin-bottom: 0; }
 
 .reactTest .reactTest-margin-bottom--small {
   margin-bottom: 0.75rem; }
@@ -52,7 +64,10 @@ body {
   margin-bottom: 1rem; }
 
 .reactTest .reactTest-margin-bottom--large {
-  margin-bottom: 1.5rem; }
+  margin-bottom: 1.75rem; }
+
+.reactTest .reactTest-margin-left--none {
+  margin-left: 0; }
 
 .reactTest .reactTest-margin-left--small {
   margin-left: 0.75rem; }
@@ -61,7 +76,10 @@ body {
   margin-left: 1rem; }
 
 .reactTest .reactTest-margin-left--large {
-  margin-left: 1.5rem; }
+  margin-left: 1.75rem; }
+
+.reactTest .reactTest-padding--none {
+  padding: 0; }
 
 .reactTest .reactTest-padding--small {
   padding: 0.75rem; }
@@ -70,7 +88,10 @@ body {
   padding: 1rem; }
 
 .reactTest .reactTest-padding--large {
-  padding: 1.5rem; }
+  padding: 1.75rem; }
+
+.reactTest .reactTest-padding-top--none {
+  padding-top: 0; }
 
 .reactTest .reactTest-padding-top--small {
   padding-top: 0.75rem; }
@@ -79,7 +100,10 @@ body {
   padding-top: 1rem; }
 
 .reactTest .reactTest-padding-top--large {
-  padding-top: 1.5rem; }
+  padding-top: 1.75rem; }
+
+.reactTest .reactTest-padding-right--none {
+  padding-right: 0; }
 
 .reactTest .reactTest-padding-right--small {
   padding-right: 0.75rem; }
@@ -88,7 +112,10 @@ body {
   padding-right: 1rem; }
 
 .reactTest .reactTest-padding-right--large {
-  padding-right: 1.5rem; }
+  padding-right: 1.75rem; }
+
+.reactTest .reactTest-padding-bottom--none {
+  padding-bottom: 0; }
 
 .reactTest .reactTest-padding-bottom--small {
   padding-bottom: 0.75rem; }
@@ -97,7 +124,10 @@ body {
   padding-bottom: 1rem; }
 
 .reactTest .reactTest-padding-bottom--large {
-  padding-bottom: 1.5rem; }
+  padding-bottom: 1.75rem; }
+
+.reactTest .reactTest-padding-left--none {
+  padding-left: 0; }
 
 .reactTest .reactTest-padding-left--small {
   padding-left: 0.75rem; }
@@ -106,7 +136,7 @@ body {
   padding-left: 1rem; }
 
 .reactTest .reactTest-padding-left--large {
-  padding-left: 1.5rem; }
+  padding-left: 1.75rem; }
 
 .reactTest .reactTest-hide {
   display: none; }
@@ -144,7 +174,7 @@ body {
   font-size: large; }
 
 .reactTest .reactTest-button {
-  border: none;
+  border: 1px solid #F88B00;
   display: inline-block;
   padding: 8px 12px 12px;
   color: black;
@@ -152,6 +182,8 @@ body {
   background: #F88B00;
   font-size: 14px;
   font-weight: 600; }
+  .reactTest .reactTest-button--neutral {
+    background: white; }
   .reactTest .reactTest-button + .reactTest-button {
     margin-left: 8px; }
 

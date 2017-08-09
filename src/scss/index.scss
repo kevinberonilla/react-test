@@ -69,14 +69,17 @@ body {
             font-size: large;
         }
         &-button {
-            border: none;
+            border: 1px solid $color-brand;
             display: inline-block;
             padding: 8px 12px 12px;
             color: black;
             text-decoration: none;
-            background: #F88B00;
+            background: $color-brand;
             font-size: 14px;
             font-weight: 600;
+            &--neutral {
+                background: white;
+            }
             +.#{$prefix}-button {
                 margin-left: 8px;
             }

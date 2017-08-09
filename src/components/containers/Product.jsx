@@ -97,11 +97,13 @@ class Product extends React.Component {
                             LOADING
                         </div>
                         <div className={'reactTest-col reactTest-product-content' + (loading ? '' : ' reactTest-product-content--show')}>
-                            <h2>{product.productName}</h2>
-                            <h4>${product.price} ({product.quantity} remaining)</h4>
+                            <h2 className="reactTest-margin-top--none reactTest-margin-bottom--none">{product.productName}</h2>
+                            <h4 className="reactTest-margin-top--none">${product.price} <small>({product.quantity} remaining)</small></h4>
                             <p>{product.productDescription}</p>
-                            <Button title="Go Back" href="/" />
-                            <Button title="Buy Now" href={product.website} target="_blank" />
+                            <div className="reactTest-margin-top--large">
+                                <Button className="reactTest-button--neutral" title="Go Back" href="/" />
+                                <Button external={true} title="Buy Now" href={product.website} target="_blank" />
+                            </div>
                         </div>
                     </div>
                 </main>

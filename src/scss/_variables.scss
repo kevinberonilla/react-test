@@ -1,12 +1,13 @@
 $prefix: reactTest;
 $padding-header: 40px;
-$color-brand: #5ADAFD;
+$color-brand: #F88B00;
 $spacing-small: 0.75rem;
 $spacing-medium: 1rem;
-$spacing-large: 1.5rem;
+$spacing-large: 1.75rem;
 
 // Arrays for mixins
 $spacing-sizes: [
+    [none, 0], 
     [small, $spacing-small], 
     [medium, $spacing-medium], 
     [large, $spacing-large]
