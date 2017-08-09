@@ -81,34 +81,38 @@ class Product extends React.Component {
     }
     
     render() {
-        var product = this.state.product || {};
-        var imageUrl = this.state.imageUrl || '';
         var loading = this.state.loading;
+        var body;
         
-        /*console.log(typeof(product.website));
-        console.log(product.website);*/
+        if (loading) {
+            // To do: make a loading state
+        } else {
+            var product = this.state.product || {};
+            var imageUrl = this.state.imageUrl || '';
+            
+            body = (
+                <div className="reactTest-grid">
+                    <div className="reactTest-col reactTest-product-image">
+                        <img src={imageUrl} alt={product.productName} />
+                    </div>
+                    <div className={'reactTest-col reactTest-product-content' + (loading ? '' : ' reactTest-product-content--show')}>
+                        <h2 className="reactTest-margin-top--none reactTest-margin-bottom--none">{product.productName}</h2>
+                        <h4 className="reactTest-margin-top--none">${product.price} <small>({product.quantity} remaining)</small></h4>
+                        <p>{product.productDescription}</p>
+                        <div className="reactTest-margin-top--large">
+                            <Button className="reactTest-button--neutral" title="Go Back" href="/" />
+                            <Button external={true} title="Buy Now" href={product.website} target="_blank" />
+                        </div>
+                    </div>
+                </div>
+            );
+        }
         
         return (
             <div className="reactTest">
                 <Header />
                 <main className="reactTest-container">
-                    <div className="reactTest-grid">
-                        <div className="reactTest-col reactTest-product-image">
-                            <img src={imageUrl} alt={product.productName} />
-                        </div>
-                        <div className={'reactTest-col reactTest-loading' + (loading ? '' : ' reactTest-hide')}>
-                            LOADING
-                        </div>
-                        <div className={'reactTest-col reactTest-product-content' + (loading ? '' : ' reactTest-product-content--show')}>
-                            <h2 className="reactTest-margin-top--none reactTest-margin-bottom--none">{product.productName}</h2>
-                            <h4 className="reactTest-margin-top--none">${product.price} <small>({product.quantity} remaining)</small></h4>
-                            <p>{product.productDescription}</p>
-                            <div className="reactTest-margin-top--large">
-                                <Button className="reactTest-button--neutral" title="Go Back" href="/" />
-                                <Button external={true} title="Buy Now" href={product.website} target="_blank" />
-                            </div>
-                        </div>
-                    </div>
+                    {body}
                 </main>
             </div>
         );

@@ -54,12 +54,16 @@ class Home extends React.Component {
     }
     
     render() {
-        var productData = this.state.productData;
-        var includedAssets = this.state.includedAssets;
         var loading = this.state.loading;
-        var products = [];
+        var body;
         
-        if (!loading) {
+        if (loading) {
+            // To do: make a loading state
+        } else {
+            var productData = this.state.productData;
+            var includedAssets = this.state.includedAssets;
+            var products = [];
+            
             // Build the list of products
             productData.forEach((product, index) => {
                 var imgId = product.fields.image[0].sys.id;
@@ -84,18 +88,19 @@ class Home extends React.Component {
                     </li>
                 );
             });
+            
+            body = (
+                <ul className="reactTest-products">
+                    {products}
+                </ul>
+            )
         }
         
         return (
             <div className="reactTest">
                 <Header />
                 <main className="reactTest-container">
-                    <div className={loading ? '' : 'reactTest-hide'}>
-                        LOADING
-                    </div>
-                    <ul className="reactTest-products">
-                        {products}
-                    </ul>
+                    {body}
                 </main>
             </div>
         );

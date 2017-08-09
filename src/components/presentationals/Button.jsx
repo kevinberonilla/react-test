@@ -16,7 +16,6 @@ class Button extends React.Component {
             className: this.props.className || '',
             external: this.props.external || false
         }
-        console.log(this.props.href);
     }
     
     render() {
