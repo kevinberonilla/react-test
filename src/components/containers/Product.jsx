@@ -85,6 +85,9 @@ class Product extends React.Component {
         var imageUrl = this.state.imageUrl || '';
         var loading = this.state.loading;
         
+        /*console.log(typeof(product.website));
+        console.log(product.website);*/
+        
         return (
             <div className="reactTest">
                 <Header />

@@ -59,30 +59,32 @@ class Home extends React.Component {
         var loading = this.state.loading;
         var products = [];
         
-        // Build the list of products
-        productData.forEach((product, index) => {
-            var imgId = product.fields.image[0].sys.id;
-            var imgUrl = '';
-            
-            // Find the asset associated with the current product
-            for (var i = 0; i < includedAssets.length; i++) {
-                if (typeof(includedAssets[i].sys.id) !== 'undefined' && includedAssets[i].sys.id === imgId) {
-                    imgUrl = includedAssets[i].fields.file.url;
-                    break;
+        if (!loading) {
+            // Build the list of products
+            productData.forEach((product, index) => {
+                var imgId = product.fields.image[0].sys.id;
+                var imgUrl = '';
+                
+                // Find the asset associated with the current product
+                for (var i = 0; i < includedAssets.length; i++) {
+                    if (typeof(includedAssets[i].sys.id) !== 'undefined' && includedAssets[i].sys.id === imgId) {
+                        imgUrl = includedAssets[i].fields.file.url;
+                        break;
+                    }
                 }
-            }
-            
-            products.push(
-                <li key={'item ' + index} className="reactTest-products__item">
-                    <Link to={`/product/?id=${product.sys.id}`}>
-                        <div className="reactTest-products__item-image">
-                            <img src={imgUrl} alt={product.fields.productName}/>
-                        </div>
-                        <h4 className="reactTest-products__item-title">{product.fields.productName}</h4>
-                    </Link>
-                </li>
-            );
-        });
+                
+                products[index] = (
+                    <li key={'item ' + index} className="reactTest-products__item">
+                        <Link to={`/product/?id=${product.sys.id}`}>
+                            <div className="reactTest-products__item-image">
+                                <img src={imgUrl} alt={product.fields.productName}/>
+                            </div>
+                            <h4 className="reactTest-products__item-title">{product.fields.productName}</h4>
+                        </Link>
+                    </li>
+                );
+            });
+        }
         
         return (
             <div className="reactTest">
