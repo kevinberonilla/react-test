@@ -246,7 +246,7 @@ body {
     border-radius: 100%;
     animation: reactTest-spin 2s infinite;
     transform: rotate(0deg);
-    animation-delay: 1s;
+    animation-delay: -1s;
     margin-top: 7px; }
     .reactTest .reactTest-loading__dots:before, .reactTest .reactTest-loading__dots:after {
       position: absolute;
@@ -257,7 +257,7 @@ body {
       background: #f88d00;
       border-radius: 100%;
       animation: reactTest-shrink 2s infinite;
-      animation-delay: 1s;
+      animation-delay: -1s;
       left: 70%; }
     .reactTest .reactTest-loading__dots:after {
       left: initial;

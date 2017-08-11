@@ -85,7 +85,7 @@ p {
             border-radius: 100%;
             animation: reactTest-spin 2s infinite;
             transform: rotate(0deg);
-            animation-delay: 1s;
+            animation-delay: -1s;
             margin-top: 7px;
             &:before,
             &:after {
@@ -97,7 +97,7 @@ p {
                 background: rgb(248, 141, 0);
                 border-radius: 100%;
                 animation: reactTest-shrink 2s infinite;
-                animation-delay: 1s;
+                animation-delay: -1s;
                 left: 70%;
             }
             &:after {
