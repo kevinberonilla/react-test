@@ -58,11 +58,21 @@ class Home extends React.Component {
         var body;
         
         if (loading) {
-            // To do: make a loading state
+            body = (
+                <div className="reactTest-loading">
+                    <ul className="reactTest-loading__animation">
+                        <li>
+                            <span className="reactTest-loading__dots"></span>
+                        </li>
+                    </ul>
+                </div>
+            );
         } else {
             var productData = this.state.productData;
             var includedAssets = this.state.includedAssets;
             var products = [];
+            
+            console.log(productData)
             
             // Build the list of products
             productData.forEach((product, index) => {
@@ -83,7 +93,10 @@ class Home extends React.Component {
                             <div className="reactTest-products__item-image">
                                 <img src={imgUrl} alt={product.fields.productName}/>
                             </div>
-                            <h4 className="reactTest-products__item-title">{product.fields.productName}</h4>
+                            <div className="reactTest-products__item-title">
+                                <h4 className="reactTest-margin-bottom--small reactTest-margin-top--none">{product.fields.productName}</h4>
+                                <p className="reactTest-margin--none">${product.fields.price}</p>
+                            </div>
                         </Link>
                     </li>
                 );

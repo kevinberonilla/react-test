@@ -82,11 +82,21 @@ class Product extends React.Component {
     
     render() {
         var loading = this.state.loading;
+        var id = this.state.id;
         var body;
         
         if (loading) {
-            // To do: make a loading state
+            body = (
+                <div className="reactTest-loading">
+                    <ul className="reactTest-loading__animation">
+                        <li>
+                            <span className="reactTest-loading__dots"></span>
+                        </li>
+                    </ul>
+                </div>
+            );
         } else {
+            // To do: Check if id is valid/present
             var product = this.state.product || {};
             var imageUrl = this.state.imageUrl || '';
             
