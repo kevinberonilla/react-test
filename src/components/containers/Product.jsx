@@ -20,19 +20,25 @@ class Product extends React.Component {
             id: this.props.id || urlParams.get('id') || '', // Id of the product
             product: this.props.product || {}, // Object with product fields
             imageUrl: this.props.imageUrl || '',
-            loading: this.props.loading || true
+            loading: this.props.loading || false
         }
         
+        // Bind the 'this' keyword for component methods
+        this.getProductData = this.getProductData.bind(this);
+        this.getProductImage = this.getProductImage.bind(this);
+        this.setProductState = this.setProductState.bind(this);
+    }
+    
+    componentDidMount() {
         const URI = 'https://cdn.contentful.com';
         var spaceId = 'oq5pma2rf0jg';
         var apiKey = 'bfaffc825e3e5cd47ef44ab90661e671163b158f5727e3e053cb132daf258eca';
         var productDataEndpoint = `${URI}/spaces/${spaceId}/entries/${this.state.id}?access_token=${apiKey}`;
         var imageDataEndpointTemplate = `${URI}/spaces/${spaceId}/assets/{id}?access_token=${apiKey}`;
         
-        // Bind the 'this' keyword for component methods
-        this.getProductData = this.getProductData.bind(this);
-        this.getProductImage = this.getProductImage.bind(this);
-        this.setProductState = this.setProductState.bind(this);
+        this.setState({
+            loading: true
+        });
         
         // Get the data
         this.getProductData(productDataEndpoint, imageDataEndpointTemplate);
