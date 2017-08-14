@@ -1,3 +1,4 @@
+// To do: Check if id is valid/present
 import React from 'react';
 
 /* --------------------------------------------------
@@ -84,46 +85,37 @@ class Product extends React.Component {
     render() {
         var loading = this.state.loading;
         var id = this.state.id;
-        var body;
-        
-        if (loading) {
-            body = (
-                <div className="reactTest-loading">
-                    <ul className="reactTest-loading__animation">
-                        <li>
-                            <span className="reactTest-loading__dots"></span>
-                        </li>
-                    </ul>
-                </div>
-            );
-        } else {
-            // To do: Check if id is valid/present
-            var product = this.state.product || {};
-            var imageUrl = this.state.imageUrl || '';
-            
-            body = (
-                <div className="reactTest-grid">
-                    <div className="reactTest-col reactTest-product-image">
-                        <img src={imageUrl} alt={product.productName} />
-                    </div>
-                    <div className={'reactTest-col reactTest-product-content' + (loading ? '' : ' reactTest-product-content--show')}>
-                        <h2 className="reactTest-margin-top--none reactTest-margin-bottom--none">{product.productName}</h2>
-                        <h4 className="reactTest-margin-top--none">${product.price} <small>({product.quantity} remaining)</small></h4>
-                        <p>{product.productDescription}</p>
-                        <div className="reactTest-margin-top--large">
-                            <Button className="reactTest-button--neutral" title="Go Back" href="/" />
-                            <Button external={true} title="Buy Now" href={product.website} target="_blank" />
-                        </div>
-                    </div>
-                </div>
-            );
-        }
+        var product = this.state.product || {};
+        var imageUrl = this.state.imageUrl || '';
         
         return (
             <div className="reactTest">
                 <Header />
                 <main className="reactTest-container">
-                    {body}
+                    {loading ? (
+                        <div className="reactTest-loading">
+                            <ul className="reactTest-loading__animation">
+                                <li>
+                                    <span className="reactTest-loading__dots"></span>
+                                </li>
+                            </ul>
+                        </div>
+                    ) : (
+                        <div className="reactTest-grid">
+                            <div className="reactTest-col reactTest-product-image">
+                                <img src={imageUrl} alt={product.productName} />
+                            </div>
+                            <div className={'reactTest-col reactTest-product-content' + (loading ? '' : ' reactTest-product-content--show')}>
+                                <h2 className="reactTest-margin-top--none reactTest-margin-bottom--none">{product.productName}</h2>
+                                <h4 className="reactTest-margin-top--none">${product.price} <small>({product.quantity} remaining)</small></h4>
+                                <p>{product.productDescription}</p>
+                                <div className="reactTest-margin-top--large">
+                                    <Button className="reactTest-button--neutral" title="Go Back" href="/" />
+                                    <Button external={true} title="Buy Now" href={product.website} target="_blank" />
+                                </div>
+                            </div>
+                        </div>
+                    )}
                 </main>
             </div>
         );
