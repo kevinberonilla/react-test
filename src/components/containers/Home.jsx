@@ -18,9 +18,14 @@ class Home extends React.Component {
         this.state = {
             productData: this.props.data || [],
             includedAssets: this.props.includes || [],
-            loading: this.props.loading || true
+            loading: this.props.loading || false
         }
         
+        // Bind the 'this' keyword for component methods
+        this.getProductList = this.getProductList.bind(this);
+    }
+    
+    componentDidMount() {
         const URI = 'https://cdn.contentful.com';
         var spaceId = 'oq5pma2rf0jg';
         var apiKey = 'bfaffc825e3e5cd47ef44ab90661e671163b158f5727e3e053cb132daf258eca';
@@ -28,8 +33,9 @@ class Home extends React.Component {
         var orderBy = 'sys.createdAt';
         var endpoint = `${URI}/spaces/${spaceId}/entries?content_type=${contentTypeId}&order=${orderBy}&access_token=${apiKey}`;
         
-        // Bind the 'this' keyword for component methods
-        this.getProductList = this.getProductList.bind(this);
+        this.setState({
+            loading: true
+        });
         
         // Get the data
         this.getProductList(endpoint);

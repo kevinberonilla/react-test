@@ -26,7 +26,6 @@ class Product extends React.Component {
         // Bind the 'this' keyword for component methods
         this.getProductData = this.getProductData.bind(this);
         this.getProductImage = this.getProductImage.bind(this);
-        this.setProductState = this.setProductState.bind(this);
     }
     
     componentDidMount() {
@@ -74,15 +73,11 @@ class Product extends React.Component {
         }).then((json) => {
             var imageUrl = json.fields.file.url;
             
-            this.setProductState(product, imageUrl);
-        });
-    }
-    
-    setProductState(product, imageUrl) {
-        this.setState({
-            product: product,
-            imageUrl: imageUrl,
-            loading: false
+            this.setState({
+                product: product,
+                imageUrl: imageUrl,
+                loading: false
+            });
         });
     }
     
