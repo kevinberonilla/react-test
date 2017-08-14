@@ -61,25 +61,11 @@ class Home extends React.Component {
     
     render() {
         var loading = this.state.loading;
-        var body;
+        var productData = this.state.productData;
+        var includedAssets = this.state.includedAssets;
+        var products = [];
         
-        if (loading) {
-            body = (
-                <div className="reactTest-loading">
-                    <ul className="reactTest-loading__animation">
-                        <li>
-                            <span className="reactTest-loading__dots"></span>
-                        </li>
-                    </ul>
-                </div>
-            );
-        } else {
-            var productData = this.state.productData;
-            var includedAssets = this.state.includedAssets;
-            var products = [];
-            
-            console.log(productData)
-            
+        if (typeof(productData) === 'object' && productData.length > 0) {
             // Build the list of products
             productData.forEach((product, index) => {
                 var imgId = product.fields.image[0].sys.id;
@@ -107,19 +93,25 @@ class Home extends React.Component {
                     </li>
                 );
             });
-            
-            body = (
-                <ul className="reactTest-products">
-                    {products}
-                </ul>
-            )
         }
         
         return (
             <div className="reactTest">
                 <Header />
                 <main className="reactTest-container">
-                    {body}
+                    {loading ? (
+                        <div className="reactTest-loading">
+                            <ul className="reactTest-loading__animation">
+                                <li>
+                                    <span className="reactTest-loading__dots"></span>
+                                </li>
+                            </ul>
+                        </div>
+                    ) : (
+                        <ul className="reactTest-products">
+                            {products}
+                        </ul>
+                    )}
                 </main>
             </div>
         );
