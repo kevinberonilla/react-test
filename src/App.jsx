@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Provider } from 'react-redux';
 
 /* --------------------------------------------------
 Styles
@@ -15,19 +16,20 @@ import Product from './components/containers/Product.jsx';
 /* --------------------------------------------------
 App Class
 -------------------------------------------------- */
-class App extends Component {
+export default class App extends Component {
     render() {
         var history;
+        var store;
         
         return (
-            <Router history={history}>
-                <Switch>
-                    <Route exact path="/" component={Home} />
-                    <Route path="/product/" component={Product} />
-                </Switch>
-            </Router>
+            <Provider store={store}>
+                <Router history={history}>
+                    <Switch>
+                        <Route exact path="/" component={Home} />
+                        <Route path="/product/" component={Product} />
+                    </Switch>
+                </Router>
+            </Provider>
         );
     }
 }
-
-export default App;

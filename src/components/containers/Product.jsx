@@ -10,7 +10,7 @@ import Button from '../presentationals/Button.jsx';
 /* --------------------------------------------------
 Product Class
 -------------------------------------------------- */
-class Product extends React.Component {
+export default class Product extends React.Component {
     constructor(props) {
         super(props);
         
@@ -121,5 +121,3 @@ class Product extends React.Component {
         );
     }
 }
-
-export default Product;

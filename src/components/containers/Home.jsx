@@ -10,7 +10,7 @@ import Header from '../presentationals/Header.jsx';
 /* --------------------------------------------------
 PageOne Class
 -------------------------------------------------- */
-class Home extends React.Component {
+export default class Home extends React.Component {
     constructor(props) {
         super(props);
         
@@ -117,5 +117,3 @@ class Home extends React.Component {
         );
     }
 }
-
-export default Home;
