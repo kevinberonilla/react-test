@@ -4,8 +4,8 @@ import React from 'react';
 /* --------------------------------------------------
 Components
 -------------------------------------------------- */
-import Header from '../presentationals/Header.jsx';
-import Button from '../presentationals/Button.jsx';
+import Header from './Header.jsx';
+import Button from './Button.jsx';
 
 /* --------------------------------------------------
 Product Class

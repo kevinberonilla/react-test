@@ -10,8 +10,8 @@ import './index.css';
 /* --------------------------------------------------
 Pages
 -------------------------------------------------- */
-import Home from './components/containers/Home.jsx';
-import Product from './components/containers/Product.jsx';
+import Home from './components/Home.jsx';
+import Product from './components/Product.jsx';
 
 /* --------------------------------------------------
 App Class

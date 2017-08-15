@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 /* --------------------------------------------------
 Components
 -------------------------------------------------- */
-import Header from '../presentationals/Header.jsx';
+import Header from './Header.jsx';
 
 
 /* --------------------------------------------------
