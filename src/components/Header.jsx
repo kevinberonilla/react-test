@@ -1,5 +1,4 @@
 import React from 'react';
-//import { Link } from 'react-router-dom';
 
 /* --------------------------------------------------
 Images
@@ -14,16 +13,9 @@ class Header extends React.Component {
         return (
             <header className="reactTest-header">
                 <div className="reactTest-container">
-                    <img src={logo} className="reactTest-logo" alt="logo" />
+                    <a href="http://kevinberonilla.com" target="_blank"><img src={logo} className="reactTest-logo" alt="logo" /></a>
                     <h2>React and Contentful Test</h2>
-                    {/*
-                    <nav className="reactTest-nav">
-                        <ul>
-                            <li><Link to="/">Home</Link></li>
-                            <li><Link to="/product/:id">Product</Link></li>
-                        </ul>
-                    </nav>
-                    */}
+                    <p><small>My personal sandbox for trying out features in React.js and Contentful's API</small></p>
                 </div>
             </header>
         );

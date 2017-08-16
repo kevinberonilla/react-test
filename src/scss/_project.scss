@@ -6,6 +6,11 @@ p {
     margin: 0;
 }
 
+a img {
+    border: none;
+    outline: none;
+}
+
 .#{$prefix} {
     @include utility-classes(margin, $spacing-directions, $spacing-sizes);
     @include utility-classes(padding, $spacing-directions, $spacing-sizes);
@@ -215,6 +220,22 @@ p {
         }
         &--padded {
             padding: 0 10px;
+        }
+    }
+    &-fade {
+        &-enter,
+        &-appear {
+            opacity: 0.01;
+            &-active {
+                opacity: 1;
+                @include transition();
+            }
+        }
+        &-leave {
+            &-active {
+                opacity: 0.01;
+                @include transition();
+            }
         }
     }
 }

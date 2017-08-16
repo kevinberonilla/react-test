@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 /* --------------------------------------------------
 Components
@@ -100,7 +101,7 @@ export default class Home extends React.Component {
                 <Header />
                 <main className="reactTest-container">
                     {loading ? (
-                        <div className="reactTest-loading">
+                        <div className="reactTest-loading" key="loading">
                             <ul className="reactTest-loading__animation">
                                 <li>
                                     <span className="reactTest-loading__dots"></span>
@@ -108,9 +109,11 @@ export default class Home extends React.Component {
                             </ul>
                         </div>
                     ) : (
-                        <ul className="reactTest-products">
-                            {products}
-                        </ul>
+                        <ReactCSSTransitionGroup transitionName="reactTest-fade" transitionAppear={true} transitionAppearTimeout={250} transitionEnterTimeout={250} transitionLeaveTimeout={250}>
+                            <ul key="products" className="reactTest-products">
+                                {products}
+                            </ul>
+                        </ReactCSSTransitionGroup>
                     )}
                 </main>
             </div>

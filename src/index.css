@@ -57,6 +57,10 @@ body {
 .reactTest p {
   margin: 0; }
 
+.reactTest a img {
+  border: none;
+  outline: none; }
+
 .reactTest .reactTest-margin--none {
   margin: 0; }
 
@@ -352,3 +356,13 @@ body {
     flex-grow: 0; }
   .reactTest .reactTest-col--padded {
     padding: 0 10px; }
+
+.reactTest .reactTest-fade-enter, .reactTest .reactTest-fade-appear {
+  opacity: 0.01; }
+  .reactTest .reactTest-fade-enter-active, .reactTest .reactTest-fade-appear-active {
+    opacity: 1;
+    transition: all 250ms ease 0ms; }
+
+.reactTest .reactTest-fade-leave-active {
+  opacity: 0.01;
+  transition: all 250ms ease 0ms; }
